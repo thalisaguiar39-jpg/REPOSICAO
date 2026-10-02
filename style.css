@@ -1,0 +1,33 @@
+:root{--teal:#0b7a6e;--teal-d:#085c53;--bg:#f3f7f6;--ink:#17302d;--line:#d3e0dd;--card:#fff;--warn:#c0392b}
+@media (prefers-color-scheme:dark){:root{--bg:#10201e;--ink:#e6f1ef;--line:#2b4743;--card:#162b28}}
+*{box-sizing:border-box}
+body{margin:0;font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+header{background:var(--teal);color:#fff;padding:24px 16px}
+header h1{margin:0;font-size:1.6rem}
+header p{margin:2px 0 0;opacity:.85}
+main{max-width:900px;margin:0 auto;padding:16px;display:grid;gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
+h2{margin:0 0 12px;font-size:1.2rem}
+h3{margin:20px 0 8px;font-size:1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:12px}
+.wide{grid-column:span 2}
+@media(max-width:480px){.wide{grid-column:auto}}
+label{display:flex;flex-direction:column;gap:4px;font-weight:500;font-size:.9rem}
+input,select{font:inherit;padding:10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);width:100%}
+input[readonly]{opacity:.75}
+small,.hint{color:inherit;opacity:.7;font-weight:400;font-size:.8rem}
+button,.file{font:inherit;font-weight:700;padding:11px 18px;border-radius:6px;border:1px solid var(--teal);background:transparent;color:var(--teal);cursor:pointer;margin-top:10px;display:inline-block}
+.primary{background:var(--teal);color:#fff}
+.primary:hover{background:var(--teal-d)}
+.file input{display:none}
+:focus-visible{outline:3px solid #f2a900;outline-offset:2px}
+#msg{min-height:1.4em;margin:8px 0 0;font-weight:500}
+#msg.err{color:var(--warn)}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+th{background:var(--teal);color:#fff;font-weight:700}
+td.n,th.n{text-align:right}
+td.prod{font-weight:700;color:var(--teal)}
+.del{margin:0;padding:3px 9px;font-size:.8rem;color:var(--warn);border-color:var(--warn)}
+.empty{opacity:.7;padding:10px 0}

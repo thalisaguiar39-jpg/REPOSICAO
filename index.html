@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TATS Confeitaria · Reposição</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>TATS Confeitaria</h1>
+  <p>Controle de reposição no mercado</p>
+</header>
+
+<main>
+  <section class="card" id="registro">
+    <h2>Registrar reposição</h2>
+    <div class="grid">
+      <label>Data
+        <input type="date" id="data">
+      </label>
+      <label class="wide">Produto
+        <select id="produto"></select>
+      </label>
+      <label>Código
+        <input type="text" id="codigo" readonly>
+      </label>
+      <label>Estoque mínimo
+        <input type="text" id="minimo" readonly>
+      </label>
+    </div>
+    <div class="grid">
+      <label>Estoque atual na prateleira
+        <input type="number" id="estoque" min="0" inputmode="numeric" placeholder="0">
+        <small>Conte depois de retirar os vencidos/estragados.</small>
+      </label>
+      <label>Quantidade da reposição
+        <input type="number" id="reposicao" min="0" inputmode="numeric" placeholder="0">
+      </label>
+      <label>Desperdício (vencido/estragado)
+        <input type="number" id="desperdicio" min="0" inputmode="numeric" placeholder="0">
+      </label>
+    </div>
+    <button class="primary" id="add">Adicionar reposição</button>
+    <p id="msg" role="status"></p>
+
+    <h3>Reposições do dia</h3>
+    <div class="scroll"><table id="tabDia"></table></div>
+  </section>
+
+  <section class="card" id="producao">
+    <h2>O que produzir</h2>
+    <p class="hint">Calculado para a data selecionada: estoque mínimo − (estoque atual + reposição).</p>
+    <div class="scroll"><table id="tabProd"></table></div>
+    <button class="primary" id="pdf">Gerar PDF de produção</button>
+  </section>
+
+  <section class="card" id="relatorio">
+    <h2>Relatório do período</h2>
+    <div class="grid">
+      <label>De <input type="date" id="de"></label>
+      <label>Até <input type="date" id="ate"></label>
+    </div>
+    <div class="scroll"><table id="tabRel"></table></div>
+    <button class="primary" id="xlsx">Exportar para o Excel</button>
+    <p class="hint">Vendido = estoque anterior + reposição anterior − desperdício − estoque atual.</p>
+  </section>
+
+  <section class="card" id="backup">
+    <h2>Backup dos dados</h2>
+    <p class="hint">Os dados ficam salvos neste navegador. Faça backup de vez em quando, principalmente antes de limpar o histórico ou trocar de aparelho.</p>
+    <button id="exp">Baixar backup</button>
+    <label class="file">Restaurar backup <input type="file" id="imp" accept=".json"></label>
+  </section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
